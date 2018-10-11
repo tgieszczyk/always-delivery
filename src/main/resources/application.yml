@@ -33,4 +33,4 @@ oauth2:
   recoveryTokenExpirationTimeout: 180
   defaultUserPassword: secret@123
 mongobee:
-  scanpackage: com.ahold.alwaysdelivery.config.changelog
+  scanpackage: com.ahold.allwaysdelivery.config.changelog
