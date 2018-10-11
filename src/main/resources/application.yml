@@ -17,7 +17,7 @@ endpoints:
 spring:
   data:
     mongodb:
-      database: ALLWAYSDELIVERY
+      database: ALLDELIV
       host: mongo-delivery
       port: 27017
       grid-fs-database: APP_FILES
@@ -33,4 +33,4 @@ oauth2:
   recoveryTokenExpirationTimeout: 180
   defaultUserPassword: secret@123
 mongobee:
-  scanpackage: pl.takto.common.configurration.changelog
+  scanpackage: com.ahold.alwaysdelivery.config.changelog
