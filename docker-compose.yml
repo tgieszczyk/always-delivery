@@ -7,13 +7,13 @@ services:
       - "27017:27017"
     networks:
       - allways-deliver-net
-    hostname: mongo.delivery
 
-  always-deliver:
+
+  allways-deliver:
     build: ./src/main/docker
     image: always-deliver
     ports:
-      - 8081:8081
+      - "8081:8081"
     depends_on:
       - mongo-delivery
     networks:

@@ -16,6 +16,6 @@ public class MongoReactiveApplication extends AbstractReactiveMongoConfiguration
 
     @Bean
     public MongoClient reactiveMongoClient() {
-        return com.mongodb.reactivestreams.client.MongoClients.create((String)"mongodb://localhost:27017/ALLDELIV");
+        return com.mongodb.reactivestreams.client.MongoClients.create((String)"mongodb://mongo-delivery:27017/ALLDELIV");
     }
 }
