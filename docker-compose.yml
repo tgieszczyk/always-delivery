@@ -7,7 +7,7 @@ services:
       - "27017:27017"
     networks:
       - allways-deliver-net
-    hostname:
+    hostname: mongo.delivery
 
   always-deliver:
     build: ./src/main/docker
