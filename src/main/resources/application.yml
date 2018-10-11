@@ -1,0 +1,36 @@
+server:
+  port: 8081
+
+logging:
+  level:
+    root: info
+    org.springframework.security: info
+    org.springframework.data.document.mongodb: info
+    org.springframework.data.mongodb.core.index: OFF
+    pl.takto: debug
+
+
+endpoints:
+  restart:
+    enabled: true
+
+spring:
+  data:
+    mongodb:
+      database: ALLWAYSDELIVERY
+      host: localhost
+      port: 27017
+      grid-fs-database: APP_FILES
+
+
+oauth2:
+  clientId: always-delivery-id
+  clientSecret: deivery$ecret
+  grantTypes: password, refresh_token
+  accessTokenExpirationTime: 14400 # seconds
+  refreshTokenExpirationTime: -1 # -1 for infinite refresh token
+  maxRecoveryCalls: 10 # user cannot perform more than this number of calls
+  recoveryTokenExpirationTimeout: 180
+  defaultUserPassword: secret@123
+mongobee:
+  scanpackage: pl.takto.common.configurration.changelog
