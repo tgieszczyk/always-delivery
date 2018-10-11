@@ -1,5 +1,9 @@
-package com.ahold.alwaysdelivery.repository;
+package com.ahold.alwaysdelivery.user.payload;
 
+import com.ahold.alwaysdelivery.api.json.JsonObjectIdDeserializer;
+import com.ahold.alwaysdelivery.api.json.JsonObjectIdSerializer;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import org.bson.types.ObjectId;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -8,10 +12,11 @@ import org.springframework.data.mongodb.core.mapping.Field;
 import java.time.LocalDate;
 import java.util.Objects;
 
-//@Data
 @Document
-public class Student {
+public class User {
     @Id
+    @JsonSerialize(using = JsonObjectIdSerializer.class)
+    @JsonDeserialize(using = JsonObjectIdDeserializer.class)
     private ObjectId id;
     @Field
     private String name;
@@ -85,8 +90,8 @@ public class Student {
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Student)) return false;
-        Student student = (Student) o;
+        if (!(o instanceof User)) return false;
+        User student = (User) o;
         return approved == student.approved &&
                 Objects.equals(getId(), student.getId()) &&
                 Objects.equals(name, student.name) &&
