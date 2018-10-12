@@ -7,5 +7,5 @@ RUN mvn clean install -f ~/always-deliver
 
 EXPOSE 8081
 
-#ENTRYPOINT mvn spring-boot:run -f ~/always-deliver
+ENTRYPOINT mvn spring-boot:run -f ~/always-deliver
 #RUN ["mvn","spring-boot:run", "-f", "~/always-deliver"]

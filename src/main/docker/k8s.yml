@@ -41,8 +41,8 @@ spec:
         - name: docker-registry
         - name: docker-registry-secure
       containers:
-      - command: ["mvn"]
-        args: ["spring-boot:run", "-f" ,"~/always-deliver"]
+      - command: []
+#        args: ["spring-boot:run", "-f" ,"~/always-deliver"]
         image: docker-registry-dev.ecom.ahold.nl:443/ah-allways-deliver-rest:latest
         resources:
           limits:
