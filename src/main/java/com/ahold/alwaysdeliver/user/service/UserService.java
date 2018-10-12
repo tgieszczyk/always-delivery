@@ -28,16 +28,18 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
-    private ThreadLocal<User> loggedInUserContext = new ThreadLocal<>();
 
     public User getLoggedInUserContext() {
-        User user = loggedInUserContext.get();
-        if (user == null && userRepository.existsById(loggedInUserId)) {
-            loggedInUserContext.set(user = userRepository.findById(loggedInUserId).get());
-        } else if (user == null) {
-            userRepository.save(user = LOGGED_IN_USER);
-            loggedInUserContext.set(user);
+        User user;
+        if (userRepository.existsById(loggedInUserId)) {
+            return userRepository.findById(loggedInUserId).get();
         }
+        userRepository.save(user = LOGGED_IN_USER);
+
         return user;
+    }
+
+    public void updateUser(User user) {
+        userRepository.save(user);
     }
 }

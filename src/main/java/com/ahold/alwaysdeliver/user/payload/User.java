@@ -30,6 +30,8 @@ public class User {
     private String phone;
     @Field
     private String email;
+    @Field
+    private ObjectId locationId;
 
     public ObjectId getId() {
         return id;
@@ -87,22 +89,31 @@ public class User {
         this.email = email;
     }
 
+    public ObjectId getLocationId() {
+        return locationId;
+    }
+
+    public void setLocationId(ObjectId locationId) {
+        this.locationId = locationId;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
-        User student = (User) o;
-        return approved == student.approved &&
-                Objects.equals(getId(), student.getId()) &&
-                Objects.equals(name, student.name) &&
-                Objects.equals(surname, student.surname) &&
-                Objects.equals(birthDate, student.birthDate) &&
-                Objects.equals(phone, student.phone) &&
-                Objects.equals(email, student.email);
+        User user = (User) o;
+        return isApproved() == user.isApproved() &&
+                Objects.equals(getId(), user.getId()) &&
+                Objects.equals(getName(), user.getName()) &&
+                Objects.equals(getSurname(), user.getSurname()) &&
+                Objects.equals(getBirthDate(), user.getBirthDate()) &&
+                Objects.equals(getPhone(), user.getPhone()) &&
+                Objects.equals(getEmail(), user.getEmail()) &&
+                Objects.equals(getLocationId(), user.getLocationId());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getId(), name, surname, birthDate, approved, phone, email);
+        return Objects.hash(getId(), getName(), getSurname(), getBirthDate(), isApproved(), getPhone(), getEmail(), getLocationId());
     }
 }
