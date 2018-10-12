@@ -18,7 +18,7 @@ spring:
   data:
     mongodb:
       database: ALLDELIV
-      host: mongo-delivery
+      host: ah-allways-delivery-mongo
       port: 27017
       grid-fs-database: APP_FILES
 
