@@ -1,7 +1,7 @@
 version: "3"
 
 services:
-  ah-allways-delivery-mongo:
+  ah-always-delivery-mongo:
     image: mongo
     ports:
       - "27017:27017"
@@ -9,13 +9,13 @@ services:
       - allways-deliver-net
 
 
-  ah-allways-delivery-rest:
+  ah-always-delivery-mongo:
     build: ./src/main/docker
-    image: ah-allways-delivery-rest
+    image: ah-always-delivery-mongo
     ports:
       - "8081:8081"
     depends_on:
-      - ah-allways-delivery-mongo
+      - ah-always-delivery-mongo
     networks:
       - allways-deliver-net
 
