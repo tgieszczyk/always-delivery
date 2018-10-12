@@ -1,5 +1,6 @@
 package com.ahold.allwaysdelivery.user.api;
 
+import com.ahold.allwaysdelivery.api.CommonController;
 import com.ahold.allwaysdelivery.api.payload.ErrorCode;
 import com.ahold.allwaysdelivery.api.validators.ObjectIdValidator;
 import com.ahold.allwaysdelivery.user.payload.User;
@@ -15,11 +16,11 @@ import reactor.core.publisher.Mono;
 
 @RestController
 @RequestMapping("/users")
-public class UserController {
+public class UserController extends CommonController {
     @Autowired
     private UserReactiveRepository userRepository;
 
-    @GetMapping("/")
+    @GetMapping("/all")
     public Flux<User> findAll() {
         return userRepository.findAll();
     }

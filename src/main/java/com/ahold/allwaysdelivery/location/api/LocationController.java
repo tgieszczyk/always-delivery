@@ -1,5 +1,6 @@
 package com.ahold.allwaysdelivery.location.api;
 
+import com.ahold.allwaysdelivery.api.CommonController;
 import com.ahold.allwaysdelivery.location.payload.Location;
 import com.ahold.allwaysdelivery.location.repository.LocationReactiveRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -10,7 +11,7 @@ import reactor.core.publisher.Flux;
 
 @RestController
 @RequestMapping("/locations")
-public class LocationController {
+public class LocationController extends CommonController {
     @Autowired
     private LocationReactiveRepository locationRepository;
 

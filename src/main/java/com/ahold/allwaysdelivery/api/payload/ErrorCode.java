@@ -6,6 +6,7 @@ public enum ErrorCode {
     ERROR_403("403", "Access is denied"),
     ERROR_URL_NOT_REACHABLE("404", "Given url is not reachable: \'%s\'"),
     ERR0002("ERR0002", "Id is in invalid format \'%s\'"),
+    ERR0003("ERR0003", "Ride is allready booked \'%s\'"),
 
 
     ;
