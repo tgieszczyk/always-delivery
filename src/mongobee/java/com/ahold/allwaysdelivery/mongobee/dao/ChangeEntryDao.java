@@ -8,10 +8,6 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.data.mongodb.core.MongoTemplate;
 
-/**
- * @author lstolowski
- * @since 27/07/2014
- */
 public class ChangeEntryDao {
 	private static final String SYSTEM_LOCKER_KEY = "databasechangelog-key";
 	private static final Logger logger = LoggerFactory.getLogger("Mongobee dao");

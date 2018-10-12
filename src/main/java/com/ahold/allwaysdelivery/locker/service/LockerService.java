@@ -52,10 +52,9 @@ public class LockerService {
 	}
 
 	public boolean isActiveKey(String key) {
-		Page<Locker> mostActiveNode = lockerRepository.findMostActiveKey(key, PAGEABLE);
+		Locker locker = lockerRepository.findByKeyOrderByCreatedAtDesc(key);
 
-		if (mostActiveNode != null && mostActiveNode.getNumberOfElements() > 0) {
-			Locker locker = mostActiveNode.getContent().get(0);
+		if (locker != null ) {
 			return locker.getNodeId().equals(nodeId);
 		}
 		return true;
