@@ -10,7 +10,7 @@ import java.time.LocalTime;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author tgieszczyk@spyro-soft.com
+ * @author tomasz.gieszczyk@ah.nl
  *
  */
 public class JsonLocalTimeSerializer extends JsonSerializer<LocalTime> {

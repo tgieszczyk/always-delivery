@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 
 /**
- * @author tgieszczyk@spyro-soft.com
+ * @author tomasz.gieszczyk@ah.nl
  *
  */
 public class JsonLocalDateDeserializer extends JsonDeserializer<LocalDate> {
