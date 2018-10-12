@@ -3,11 +3,11 @@ server:
 
 logging:
   level:
-    root: info
+    root: debug
     org.springframework.security: info
     org.springframework.data.document.mongodb: info
     org.springframework.data.mongodb.core.index: OFF
-    pl.takto: debug
+    com.ahold.alwaysdeliver: debug
 
 
 endpoints:
@@ -33,4 +33,4 @@ oauth2:
   recoveryTokenExpirationTimeout: 180
   defaultUserPassword: secret@123
 mongobee:
-  scanpackage: com.ahold.allwaysdelivery.config.changelog
+  scanpackage: com.ahold.alwaysdeliver.config.changelog

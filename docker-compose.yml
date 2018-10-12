@@ -6,20 +6,20 @@ services:
     ports:
       - "27017:27017"
     networks:
-      - allways-deliver-net
+      - always-deliver-net
 
 
-  ah-always-delivery-mongo:
-    build: ./src/main/docker
-    image: ah-always-delivery-mongo
+  always-deliver:
+    build: ./src/main/docker-local
+    image: always-deliver
     ports:
       - "8081:8081"
     depends_on:
       - ah-always-delivery-mongo
     networks:
-      - allways-deliver-net
+      - always-deliver-net
 
 networks:
-  allways-deliver-net:
+  always-deliver-net:
     driver: bridge
 
