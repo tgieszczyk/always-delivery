@@ -1,10 +1,10 @@
 apiVersion: extensions/v1beta1
 kind: Deployment
 metadata:
-  name: "ah-always-delivery-mongo"
+  name: "ah-allways-deliver-rest"
   labels:
-    run: ah-always-delivery-mongo
-    name: ah-always-delivery-mongo
+    run: ah-allways-deliver-rest
+    name: ah-allways-deliver-rest
     tier: frontend
     role: web-application
     team-channel: team-ronin-notifications
@@ -17,7 +17,7 @@ metadata:
 spec:
   selector:
     matchLabels:
-      run: ah-always-delivery-mongo
+      run: ah-allways-deliver-rest
   revisionHistoryLimit: 2
   strategy:
     type: RollingUpdate
@@ -27,8 +27,8 @@ spec:
   template:
     metadata:
       labels:
-        run: ah-always-delivery-mongo
-        name: ah-always-delivery-mongo
+        run: ah-allways-deliver-rest
+        name: ah-allways-deliver-rest
         team-channel: team-ronin-notifications
         support-level: "8x5"
       annotations:
@@ -41,9 +41,9 @@ spec:
         - name: docker-registry
         - name: docker-registry-secure
       containers:
-      - command: ["yarn"]
-        args: ["start"]
-        image: docker-registry-dev.ecom.ahold.nl:443/ah-always-delivery-mongo:latest
+      - command: ["mvn"]
+        args: ["spring-boot:run", "-f" ,"~/always-deliver"]
+        image: docker-registry-dev.ecom.ahold.nl:443/ah-allways-deliver-rest:latest
         resources:
           limits:
             memory: 786Mi
@@ -67,7 +67,7 @@ spec:
           successThreshold: 1
           failureThreshold: 10
           timeoutSeconds: 1
-        name: ah-always-delivery-mongo
+        name: ah-allways-deliver-rest
 
 ---
 
@@ -75,13 +75,13 @@ apiVersion: v1
 kind: Service
 metadata:
   labels:
-    run: ah-always-delivery-mongo
-  name: ah-always-delivery-mongo
+    run: ah-allways-deliver-rest
+  name: ah-allways-deliver-rest
 spec:
   ports:
-  - name: ah-always-delivery-mongo
+  - name: ah-allways-deliver-rest
     targetPort: 8081
     port: 80
     protocol: TCP
   selector:
-    run: ah-always-delivery-mongo
+    run: ah-allways-deliver-rest
