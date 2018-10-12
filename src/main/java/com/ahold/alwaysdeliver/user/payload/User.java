@@ -1,5 +1,7 @@
 package com.ahold.alwaysdeliver.user.payload;
 
+import com.ahold.alwaysdeliver.api.json.JsonLocalDateDeserializer;
+import com.ahold.alwaysdeliver.api.json.JsonLocalDateSerializer;
 import com.ahold.alwaysdeliver.api.json.JsonObjectIdDeserializer;
 import com.ahold.alwaysdeliver.api.json.JsonObjectIdSerializer;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -23,6 +25,8 @@ public class User {
     @Field
     private String surname;
     @Field
+    @JsonSerialize(using = JsonLocalDateSerializer.class)
+    @JsonDeserialize(using = JsonLocalDateDeserializer.class)
     private LocalDate birthDate;
     @Field
     private boolean approved;
@@ -31,6 +35,8 @@ public class User {
     @Field
     private String email;
     @Field
+    @JsonSerialize(using = JsonObjectIdSerializer.class)
+    @JsonDeserialize(using = JsonObjectIdDeserializer.class)
     private ObjectId locationId;
 
     public ObjectId getId() {

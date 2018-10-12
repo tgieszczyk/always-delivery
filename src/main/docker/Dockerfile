@@ -1,4 +1,4 @@
-FROM maven:3.5.4-jdk-11
+FROM maven:3.5.4-jdk-11-slim
 RUN git --version
 #RUN apt install git-all
 
